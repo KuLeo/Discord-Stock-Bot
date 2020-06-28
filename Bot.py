@@ -1,4 +1,3 @@
-import discord
 from discord.ext import commands
 
 
@@ -21,5 +20,9 @@ async def on_member_join(member):
 async def on_member_remove(member):
     print(f"{member} leave!")
 
+
+@bot.command()
+async def ping(ctx):
+    await ctx.send(f'{round(bot.latency * 1000, 2)} (ms)')
 
 bot.run('NzI2MzM3MzAzNDEyMzQyODI0.XvgFRg.QfZPXdWZF5VgKNe1_9_3wJll_ms')
