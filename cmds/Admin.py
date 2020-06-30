@@ -23,8 +23,9 @@ class AdminCommand(CogExtension):
 
     @commands.command()
     async def reload(self, ctx, extension):
-        self.bot.reload_extension(f'cmds.{extension}')
-        await ctx.send(f'Reloaded {extension} done.')
+        if str(ctx.message.author.id) in self.jdata["Admin"]:
+            self.bot.reload_extension(f'cmds.{extension}')
+            await ctx.send(f'Reloaded {extension} done.')
 
 
 def setup(bot):
